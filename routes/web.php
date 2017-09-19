@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
     //prefix with group function, with this you can remove all the /admin from the the following routes
 Route::prefix('admin')->group(function(){
-    Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
