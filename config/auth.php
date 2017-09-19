@@ -13,6 +13,9 @@ return [
     |
     */
 
+    /*
+    Admins use the same password as users
+    */
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
@@ -45,6 +48,16 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'admins-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -69,6 +82,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -91,11 +108,20 @@ return [
     |
     */
 
+    /*
+    Changed the admins password reset to 10 minutes, the user reset password is 60 minutes
+    */
+
     'passwords' => [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ], 
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 10,
         ],
     ],
 
