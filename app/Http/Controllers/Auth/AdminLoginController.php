@@ -29,7 +29,7 @@ class AdminLoginController extends Controller
         // Try login in user 
         // The attempt in if (Auth::guard('admin')->attempt automaticly hashes the password/email you dont
         // have to manually hash it
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->$remember)) {
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
         
         // if it works go to correct location
         return redirect()->intended(route('admin.dashboard'));
