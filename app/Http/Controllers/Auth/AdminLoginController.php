@@ -21,11 +21,11 @@ class AdminLoginController extends Controller
     public function login(Request $request)
     {
         // Accepting form data
-        $this->validate($request, [
+        $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:6'
         ]);
-
+        
         // Try login in user 
         // The attempt in if (Auth::guard('admin')->attempt automaticly hashes the password/email you dont
         // have to manually hash it
