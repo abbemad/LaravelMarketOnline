@@ -34,8 +34,24 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return void
      */
-    public function report(Exception $exception)
+     public function report(Exception $exception)
     {
+        
+        if($exception instanceof AuthenticationException){
+            $guard = array_get($exception->guards(),0);
+
+            switch($guard){
+                case 'staff':
+                    $login = 'staff.login';
+                    break;
+
+                default:
+                    $login = 'login';
+                    break;
+            }
+            return redirect()->guest(route($login));
+
+        };
         parent::report($exception);
     }
 
