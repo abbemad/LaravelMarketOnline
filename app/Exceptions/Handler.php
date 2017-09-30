@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Exceptions;
-
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
 class Handler extends ExceptionHandler
 {
     /**
@@ -15,7 +12,6 @@ class Handler extends ExceptionHandler
     protected $dontReport = [
         //
     ];
-
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
@@ -25,7 +21,6 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
-
     /**
      * Report or log an exception.
      *
@@ -39,22 +34,18 @@ class Handler extends ExceptionHandler
         
         if($exception instanceof AuthenticationException){
             $guard = array_get($exception->guards(),0);
-
             switch($guard){
                 case 'staff':
                     $login = 'staff.login';
                     break;
-
                 default:
                     $login = 'login';
                     break;
             }
             return redirect()->guest(route($login));
-
         };
         parent::report($exception);
     }
-
     /**
      * Render an exception into an HTTP response.
      *
@@ -64,6 +55,23 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
-    }   
+        $class = get_class($exception);
+
+            switch($class) {
+                case 'Illuminate\Auth\AuthenticationException':
+                    $guard = array_get($exception->guards(), 0);
+            switch ($guard) {
+                case 'admin':
+                    $login = 'admin.login';
+                    break;
+                    default:
+                    $login = 'login';
+                    break;
+            }
+
+            return redirect()->route($login);
+    }
+
+            return parent::render($request, $exception);
+    }
 }

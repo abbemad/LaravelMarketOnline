@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Damien's Online Market
                 </div>
 
                 <div class="links">
