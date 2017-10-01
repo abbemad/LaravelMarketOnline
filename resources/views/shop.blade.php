@@ -6,8 +6,9 @@
     </center>
     <div class="row">
         <div class="col-md-12">
-            <div class="table-responsive">
+            <div class="col-sm-4">
                 <table>
+                    <div class="col-sm-4">
                     <thead>
                         <tr>
                             <th>Product 1</th>
@@ -23,6 +24,7 @@
                             <td>Product 3</td>
                         </tr>
                     </tbody>
+                    </div>
                 </tabel>
             </div>
         </div>
