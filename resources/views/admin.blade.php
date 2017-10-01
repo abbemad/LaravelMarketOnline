@@ -16,6 +16,14 @@
                     @endif
 
                     You are logged in as a <strong>ADMIN<strong>
+
+                    <br></br>
+                    <a href="{{ URL ('shop')}}" class="btn btn-sm btn-primary">Usershop</a>
+                    <br></br>
+                    <a href="{{ URL ('shop')}}" class="btn btn-sm btn-primary">Adminshop</a>
+                    <br><br>
+                    <a href="{{ URL ('products')}}" class="btn btn-sm btn-primary">Products</a>
+                    
                 </div>
             </div>
         </div>

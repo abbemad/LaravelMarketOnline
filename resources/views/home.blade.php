@@ -16,6 +16,10 @@
                     @endif
 
                     You are logged in as a <strong>USER<strong>
+                    
+                     <br></br>
+                    <a href="{{ URL ('shop')}}" class="btn btn-sm btn-primary">Back to the shop</a>
+
                 </div>
             </div>
         </div>

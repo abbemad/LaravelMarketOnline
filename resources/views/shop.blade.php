@@ -1,19 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+    <center>
+        <h3>Shop</h3>
+    </center>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Shop</div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product 1</th>
+                            <th>Product 2</th>
+                            <th>Product 3</th>
+                        </tr>
+                    </thead>
 
-                <div class="panel-body">
-                
-                    Merchandise <strong>User<strong>
-                    
-                </div>
+                    <tbody>
+                        <tr>
+                            <td>Product 1</td>
+                            <td>Product 2</td>
+                            <td>Product 3</td>
+                        </tr>
+                    </tbody>
+                </tabel>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    @endsection
