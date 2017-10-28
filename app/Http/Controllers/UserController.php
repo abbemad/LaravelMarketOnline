@@ -43,7 +43,7 @@ class UserController extends Controller
                     'email'=>$request->email,
                     'password'=>$request->password];
         DB::table('users')->where('id',$request->id)->update($data);
-        return redirect('users/list');
+        return redirect('admin/users/list');
     }
     public function delete()
     {
