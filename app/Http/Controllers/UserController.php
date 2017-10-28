@@ -9,6 +9,14 @@ class UserController extends Controller
 {
     public function index()
     {
+            $users = DB::table('users')
+                ->selectRaw('users.name,
+                users.email,
+                users.password
+')
+                ->get();
+            return view('users.index',compact('users'));
+
         return view('users.index');
     }
     public function insert()
@@ -17,19 +25,29 @@ class UserController extends Controller
     }
     public function save(Request $request)
     {
-        $data = [   'first_name'=>$request->first_name,
-                    'email_name'=>$request->email_name,
-                    'password_name'=>$request->passwordname];
-                    
+        $data = [   'name'=>$request->name,
+                    'email'=>$request->email,
+                    'password'=>$request->password];
+
         DB::table('users')->insert($data);
         return back();
     }
     public function edit($id)
     {
+        $users = DB::table('users')->where('id,$id')->first();
         return view('users.edit')->with('id',$id);
+    }
+    public function update(Request $request)
+    {
+        $data = [   'name'=>$request->name,
+                    'email'=>$request->email,
+                    'password'=>$request->password];
+        DB::table('users')->where('id',$request->id)->update($data);
+        return redirect('users/list');
     }
     public function delete()
     {
-        return view('users.delete');
+        DB::table('users')->where('id',$request->id)->delete();
+        return back();
     }
 }

@@ -36,8 +36,12 @@ Route::prefix('admin')->group(function(){
     //Route::get('/users/edit','UserController@edit');
     Route::get('/users/delete','UserController@delete');
     Route::get('/users/edit/{id}',['as'=>'edit/users','uses'=>'UserController@edit']);
-    
+
     Route::post('/users/save','UserController@save');
+
+    Route::post('/users/delete', 'UserController@delete');
+
+    Route::post('/users/update','UserController@update');
 
 
     Route::get('/users','AjaxController@index');
