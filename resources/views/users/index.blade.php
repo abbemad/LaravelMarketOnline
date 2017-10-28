@@ -23,6 +23,6 @@
                 @endforeach
         </tbody>    
     </table>
-    <a href="{{ URL::to('/admin/users/edit',10) }}">Edit</a>
+    <a href="{{ URL::to('/admin/users/insert') }}">Add new user</a>
 </body>
 </html>

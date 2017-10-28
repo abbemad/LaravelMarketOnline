@@ -41,6 +41,8 @@
                 <input type="submit" value="Submit">
             </td>
 
+            <a href="{{ URL::to('/admin/users/list') }}">Return</a>
+
         </table>
     </form>
 </body>
