@@ -44,5 +44,5 @@ Route::prefix('admin')->group(function(){
     Route::post('/users/update','UserController@update');
 
 
-    Route::get('/users','AjaxController@index');
+    Route::get('/users','UserController@index');
 });
