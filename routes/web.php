@@ -31,6 +31,15 @@ Route::prefix('admin')->group(function(){
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     
+    // TO DO
+
+    // Everything from the UserController should be in the Auth\AdminController
+    // Below here also  + change the Routes to UserController
+
+    // Need to make new routes for next step in project for the Basket for the users 
+    // Make/edit a new User controller 
+    // Add basket in User controller + Routes
+    
     Route::get('/users/list','UserController@index');
     Route::get('/users/insert','UserController@insert');
     //Route::get('/users/edit','UserController@edit');
