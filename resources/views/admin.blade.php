@@ -16,8 +16,8 @@
                     @endif
 
                     You are logged in as a <strong>ADMIN<strong>
-
-                    <a href="{{ URL ('users')}}" class="btn btn-sm btn-primary">Show all users</a>
+                    
+                    <a href="{{ URL ('/admin/users/list')}}" class="btn btn-sm btn-primary">Show all users</a>
                     
                 </div>
             </div>

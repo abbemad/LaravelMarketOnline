@@ -10,7 +10,8 @@
                 <div class="panel-body">
                 
                     About 
-                    Our company exists along time
+                    What countries are we currently shipping to? Press the button
+                    <a href="{{ URL::to('country/1') }}">Shipping to</a>
                     
                 </div>
             </div>

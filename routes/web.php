@@ -16,6 +16,11 @@ Route::view('/shop', 'shop')->name('shop');
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
 
+Route::get('/country/{id}',function($id){
+    $countries = App\Country::all();
+    return view('/country',compact('countries'));
+});
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -39,7 +44,7 @@ Route::prefix('admin')->group(function(){
     // Need to make new routes for next step in project for the Basket for the users 
     // Make/edit a new User controller 
     // Add basket in User controller + Routes
-    
+
     Route::get('/users/list','UserController@index');
     Route::get('/users/insert','UserController@insert');
     //Route::get('/users/edit','UserController@edit');
