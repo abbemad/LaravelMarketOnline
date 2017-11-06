@@ -34,8 +34,8 @@ class UserController extends Controller
     }
     public function edit($id)
     {
-        $users = DB::table('users')->where('id,$id')->first();
-        return view('users.edit')->with('id',$id);
+        $users = DB::table('users')->where('id',$id)->first();
+        return view('users.edit',compact('members', 'users'))->with('id',$id);
     }
     public function update(Request $request)
     {

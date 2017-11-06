@@ -21,6 +21,15 @@ class MemberController extends Controller
         return view('members.index');
     }
 
+    public function save(Request $request)
+    {
+            $data = ['name'=>$request->name,
+            'email'=>$request->email,
+            'member'=>$request->member];
+            DB::table('memberlist')->insert($data);
+            return back();
+    }
+            
     public function insert()
     {
             return view ('members.insert',['members'=>Member::all()]);

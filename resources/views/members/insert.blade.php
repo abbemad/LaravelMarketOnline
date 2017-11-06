@@ -17,7 +17,7 @@
 <body>
     <h1>New Member subscription</h1>
     <hr>
-    <form action="{{ URL::to('/admin/users/member/insert')}}" method="POST">
+    <form action="{{ URL::to('admin/users/member/save')}}" method="POST">
         {{ csrf_field() }}
         <table>
         
@@ -41,7 +41,7 @@
                     <select name="member">
                         <option>-------------</option>
                         @foreach($members as $member)
-                            <option value="{{ $member->member_id }}"> {{ $member->member }}</option>
+                            <option value="{{ $member->id }}"> {{ $member->member }}</option>
                         @endforeach
 
                     </select>
