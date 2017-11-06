@@ -40,6 +40,9 @@
                 <td>
                     <select name="member">
                         <option>-------------</option>
+                        @foreach($members as $member)
+                            <option value="{{ $members->member_id }}"> {{ $members->member }}</option>
+                        @endforeach
 
                     </select>
                 </td>

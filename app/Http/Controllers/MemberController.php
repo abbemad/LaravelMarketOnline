@@ -23,7 +23,7 @@ class MemberController extends Controller
 
     public function insert()
     {
-            return view ('members.insert');
+            return view ('members.insert',['members'=>Member::all()]);
 
     }
 }
