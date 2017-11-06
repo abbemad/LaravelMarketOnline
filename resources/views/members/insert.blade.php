@@ -5,28 +5,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User list</title>
+    <title>User Insert list</title>
+    <style type="text/css">
+        html,body{
+            width: 600px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>User list</h1>
+    <h1>New Member subscription</h1>
     <hr>
-    <table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>ID</th>
-        </tr>
-    </thead>
-        <tbody>
-            @foreach($member as $mem)
-                <tr>
-                    <td> {{ $mem->name }} </td>
-                    <td> {{ $mem->email }} </td>
-                </tr>
-                @endforeach
-        </tbody>    
-    </table>
-    <a href="{{ URL::to('/users/member/insert') }}">Add new user</a>
+    <form action="{{ URL::to('/admin/users/member/insert')}}" method="POST">
+        {{ csrf_field() }}
+        <table>
+        
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" name="name">
+                </td>
+            </tr>
+
+            <tr>
+                <td>E-mail</td>
+                <td>
+                    <input type="email" name="email">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Member</td>
+                <td>
+                    <select name="member">
+                        <option>-------------</option>
+
+                    </select>
+                </td>
+            </tr>
+
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+
+            <a href="{{ URL::to('/admin/users/member') }}">Return</a>
+
+        </table>
+    </form>
 </body>
 </html>

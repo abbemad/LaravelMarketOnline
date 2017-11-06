@@ -27,6 +27,6 @@
                 @endforeach
         </tbody>    
     </table>
-    <a href="{{ URL::to('/users/member/insert') }}">Make member</a>
+    <a href="{{ URL::to('/admin/users/member/insert') }}">Make member</a>
 </body>
 </html>

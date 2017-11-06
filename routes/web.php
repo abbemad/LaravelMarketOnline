@@ -59,6 +59,6 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/users','UserController@index');
 
-    Route::get('/users/member', 'MemberController@index');
-    Route::get('/users/member/insert', 'MemberController@insert');
+    Route::get('/users/member','MemberController@index');
+    Route::get('/users/member/insert','MemberController@insert');
 });
