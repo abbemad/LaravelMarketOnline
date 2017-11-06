@@ -41,7 +41,7 @@
                     <select name="member">
                         <option>-------------</option>
                         @foreach($members as $member)
-                            <option value="{{ $members->member_id }}"> {{ $members->member }}</option>
+                            <option value="{{ $member->member_id }}"> {{ $member->member }}</option>
                         @endforeach
 
                     </select>
