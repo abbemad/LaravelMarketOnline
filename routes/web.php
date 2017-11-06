@@ -57,6 +57,8 @@ Route::prefix('admin')->group(function(){
 
     Route::post('/users/update','UserController@update');
 
-
     Route::get('/users','UserController@index');
+
+    Route::get('/users/member', 'MemberController@index');
+    Route::get('/users/member/insert', 'MemberController@insert');
 });
