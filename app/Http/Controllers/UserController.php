@@ -10,7 +10,8 @@ class UserController extends Controller
     public function index()
     {
             $users = DB::table('users')
-                ->selectRaw('users.name,
+                ->selectRaw('users.id,
+                users.name,
                 users.email,
                 users.password
 ')

@@ -13,14 +13,15 @@
     <table>
     <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
-            <th>ID</th>
         </tr>
     </thead>
         <tbody>
             @foreach($users as $stu)
                 <tr>
+                    <td> {{ $stu->id }} </td>
                     <td> {{ $stu->name }} </td>
                     <td> {{ $stu->email }} </td>
                 </tr>
