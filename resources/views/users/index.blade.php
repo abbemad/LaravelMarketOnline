@@ -24,6 +24,8 @@
                     <td> {{ $stu->id }} </td>
                     <td> {{ $stu->name }} </td>
                     <td> {{ $stu->email }} </td>
+                    <!-- '\/ is om 1 schuine streep neer te zetten' -->
+                    <td><a href="{{ URL::to('/admin/users/edit\/') }}{{ $stu->id }}">Edit user</a> </td>
                 </tr>
                 @endforeach
         </tbody>    
