@@ -24,8 +24,10 @@
                     <td> {{ $stu->id }} </td>
                     <td> {{ $stu->name }} </td>
                     <td> {{ $stu->email }} </td>
-                    <!-- '\/ is om 1 schuine streep neer te zetten' -->
-                    <td><a href="{{ URL::to('/admin/users/edit\/') }}{{ $stu->id }}">Edit user</a> </td>
+                    <!-- '\/ is om 1 schuine streep neer te zetten veranderd naar , dit werkt beter' -->
+                    <td><a href="{{ URL::to('/admin/users/edit',$stu->id) }}">Edit user</a> </td>
+
+                    <td><a href="{{ URL::to('/admin/users/delete',$stu->id) }}" onclick="return confirm('Are you sure')">Delete user</a> </td>
                 </tr>
                 @endforeach
         </tbody>    

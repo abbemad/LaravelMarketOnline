@@ -43,10 +43,11 @@ class UserController extends Controller
         $data = [   'name'=>$request->name,
                     'email'=>$request->email,
                     'password'=>$request->password];
+                    
         DB::table('users')->where('id',$request->id)->update($data);
         return redirect('admin/users/list');
     }
-    public function delete()
+    public function delete(Request $request)
     {
         DB::table('users')->where('id',$request->id)->delete();
         return back();

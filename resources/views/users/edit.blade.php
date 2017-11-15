@@ -40,5 +40,6 @@
 
         </table>
     </form>
+    <a href="{{ URL::to('/admin/users/list') }}">Return</a>
 </body>
 </html>
