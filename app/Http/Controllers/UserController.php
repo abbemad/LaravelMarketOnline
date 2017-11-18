@@ -48,7 +48,7 @@ class UserController extends Controller{
     }
 
     public function delete(Request $request){
-
+        
         DB::table('users')->where('id',$request->id)->delete();
         return back();
     }

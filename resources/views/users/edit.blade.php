@@ -13,6 +13,14 @@
     <form action="{{ URL::to('/admin/users/update')}}" method="POST">
         {{ csrf_field() }}
         <table>
+
+            <tr>
+                <td>ID</td>
+                <td>
+                    <input type="hidden" name="id" value="{{  $users->id  }}">
+                </td>
+            </tr>
+
             <tr>
                 <td>Name</td>
                 <td>
