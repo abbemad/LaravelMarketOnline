@@ -2,15 +2,17 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">User list</div>
+                    <div class="panel-body">
 <head>
     <title>User list</title>
 </head>
 <body>
-    <h1>User list</h1>
-    <hr>
-    <table>
+    <table class= table table-hover>
     <thead>
         <tr>
             <th>ID</th>
@@ -32,8 +34,14 @@
                 @endforeach
         </tbody>    
     </table>
-    <a href="{{ URL::to('/admin/users/insert') }}">Add new user</a>
-    <br>
-    <a href="{{ URL::to('/admin/') }}">Return</a>
+        <a href="{{ URL::to('/admin/users/insert') }}">Add new user</a>
+            <br>
+        <a href="{{ URL::to('/admin/') }}">Return</a>
 </body>
-</html>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
