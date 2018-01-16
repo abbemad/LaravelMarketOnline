@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use DB;
 use App\User;
 
-class MemberController extends Controller
+class MemberController extends AdminController
 { 
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:admin');
+    // }
 
     public function index()
     {

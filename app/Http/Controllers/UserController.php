@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 
 use App\User;
 
-class UserController extends Controller
+class UserController extends AdminController
 {
    
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:admin');
+    // }
 
     public function index(){
 
