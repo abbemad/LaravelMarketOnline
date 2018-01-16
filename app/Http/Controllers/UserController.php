@@ -3,10 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 
-class UserController extends Controller{
+use App\User;
+
+class UserController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function index(){
+
             $users = DB::table('users')
                 ->selectRaw('users.id,
                 users.name,
@@ -50,6 +70,6 @@ class UserController extends Controller{
     public function delete(Request $request){
         
         DB::table('users')->where('id',$request->id)->delete();
-        return redirect('admin/users/list');
+         return redirect('admin/users/list');
     }
 }
