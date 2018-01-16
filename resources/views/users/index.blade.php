@@ -29,7 +29,7 @@
                     <!-- '\/ is om 1 schuine streep neer te zetten veranderd naar , dit werkt beter' -->
                     <td><a href="{{ URL::to('/admin/users/edit',$stu->id) }}">Edit user</a> </td>
 
-                    <td><a href="{{ URL::to('/admin/users/delete',$stu->id) }}" onclick="return confirm('Are you sure you want to delete this user')">Delete user</a> </td>
+                    <td><a href="{{ URL::to('/admin/users/delete',$stu->id) }}" onclick="return confirm('Are you sure you want to delete the user : {{$stu->name}} ')"> Delete user</a> </td>
                 </tr>
                 @endforeach
         </tbody>    
