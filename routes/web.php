@@ -53,7 +53,7 @@ Route::prefix('admin')->group(function(){
 
     Route::post('/users/save','UserController@save');
 
-    Route::post('/users/delete/{id}', 'UserController@delete');
+    Route::get('/users/delete/{id}', 'UserController@delete');
 
     Route::post('/users/update','UserController@update');
 
