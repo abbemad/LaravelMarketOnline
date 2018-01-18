@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 use App\User;
+
 
 class UserController extends AdminController
 {
-   
-    // public function __construct()
-    // {
-    //     $this->middleware('auth:admin');
-    // }
 
     public function index(){
 
@@ -20,8 +16,8 @@ class UserController extends AdminController
                 ->selectRaw('users.id,
                 users.name,
                 users.email,
-                users.password
-')
+                users.password')
+                
                 ->get();
             return view('users.index',compact('users'));
 

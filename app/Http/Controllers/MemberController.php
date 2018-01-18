@@ -8,10 +8,6 @@ use App\User;
 
 class MemberController extends AdminController
 { 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth:admin');
-    // }
 
     public function index()
     {
