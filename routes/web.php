@@ -47,7 +47,6 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/users/list','UserController@index');
     Route::get('/users/insert','UserController@insert');
-    //Route::get('/users/edit','UserController@edit');
     Route::get('/users/delete','UserController@delete');
     Route::get('/users/edit/{id}',['as'=>'edit/users','uses'=>'UserController@edit']);
 

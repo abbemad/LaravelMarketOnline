@@ -21,15 +21,15 @@
         </tr>
     </thead>
         <tbody>
-            @foreach($users as $stu)
+            @foreach($users as $user)
                 <tr>
-                    <td> {{ $stu->id }} </td>
-                    <td> {{ $stu->name }} </td>
-                    <td> {{ $stu->email }} </td>
+                    <td> {{ $user->id }} </td>
+                    <td> {{ $user->name }} </td>
+                    <td> {{ $user->email }} </td>
                     <!-- '\/ is om 1 schuine streep neer te zetten veranderd naar , dit werkt beter' -->
-                    <td><a href="{{ URL::to('/admin/users/edit',$stu->id) }}">Edit user</a> </td>
+                    <td><a href="{{ URL::to('/admin/users/edit',$user->id) }}">Edit user</a> </td>
 
-                    <td><a href="{{ URL::to('/admin/users/delete',$stu->id) }}" onclick="return confirm('Are you sure you want to delete the user : {{$stu->name}} ')"> Delete user</a> </td>
+                    <td><a href="{{ URL::to('/admin/users/delete',$user->id) }}" onclick="return confirm('Are you sure you want to delete the user : {{$user->name}} ')"> Delete user</a> </td>
                 </tr>
                 @endforeach
         </tbody>    
