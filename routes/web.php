@@ -64,4 +64,8 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/tasks','TasksController@index');
     Route::get('/tasks/task/{id}','TasksController@show');
+
+    Route::get('/products','ProductController@index');
+    Route::get('/products/product/{id}','ProductController@index');
+    
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use DB;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,6 +16,20 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $products = DB::table('product')
+            ->selectRaw('product.id, 
+            product.name, 
+            product.description, 
+            product.stock, 
+            product.price, 
+            product.amount, 
+            product.user_id, 
+            product.created_at,
+            product.updated_at')
+
+            ->get();
+
+        return view('products.index', ['products'=> $products]);
     }
 
     /**

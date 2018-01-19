@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use DB;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller

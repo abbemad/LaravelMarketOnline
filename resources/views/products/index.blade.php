@@ -17,25 +17,25 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>User ID</th>
-            <th>Order ID</th>
-            <th>Days</th>
-            <th>Hours</th>
-            <th>Created</th>
-            <th>Updated</th>
+            <th>Description</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>User</th>
+            <th>Order Created</th>
         </tr>
     </thead>
         <tbody>
-            @foreach($tasks as $task)
+            @foreach($products as $product)
                 <tr>
-                    <td> {{ $task->id }} </td>
-                    <td> {{ $task->name }} </td>
-                    <td> {{ $task->user_id }} </td>
-                    <td> {{ $task->order_id }} </td>
-                    <td> {{ $task->days }} </td>
-                    <td> {{ $task->hours }} </td>
-                    <td> {{ $task->created_at }} </td>
-                    <td> {{ $task->updated_at }} </td>
+                    <td> {{ $product->id }} </td>
+                    <td> {{ $product->name }} </td>
+                    <td> {{ $product->description }} </td>
+                    <td> {{ $product->stock }} </td>
+                    <td> {{ $product->price }} </td>
+                    <td> {{ $product->amount }} </td>
+                    <td> {{ $product->user_id }} </td>
+                    <td> {{ $product->created_at }} </td>
                     <!-- '\/ is om 1 schuine streep neer te zetten veranderd naar , dit werkt beter' -->
                     <td><a href="{{ URL::to('/admin/users/edit',$user->id) }}">Edit user</a> </td>
                     <td><a href="{{ URL::to('/admin/tasks/edit',$user->id) }}">Show task</a> </td>
