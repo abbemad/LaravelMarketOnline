@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use DB;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
@@ -15,6 +16,19 @@ class TasksController extends Controller
     public function index()
     {
         //
+        $tasks = DB::table('tasks')
+            ->selectRaw('tasks.id, 
+            tasks.name, 
+            tasks.user_id, 
+            tasks.order_id, 
+            tasks.days, 
+            tasks.hours, 
+            tasks.created_at, 
+            tasks.updated_at')
+
+            ->get();
+
+        return view('tasks.index', ['tasks'=> $tasks]);
     }
 
     /**
@@ -47,6 +61,9 @@ class TasksController extends Controller
     public function show(Task $task)
     {
         //
+        $task = Task::where('id', $task->id);
+
+        return view('tasks.show',['task'=>$task]);
     }
 
     /**

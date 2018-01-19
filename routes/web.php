@@ -61,4 +61,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/users/member','MemberController@index');
     Route::get('/users/member/insert','MemberController@insert');
     Route::post('/users/member/save','MemberController@save');
+
+    Route::get('/tasks','TasksController@index');
+    Route::get('/tasks/task/{id}','TasksController@show');
 });

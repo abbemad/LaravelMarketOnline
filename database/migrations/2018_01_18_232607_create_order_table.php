@@ -16,7 +16,7 @@ class CreateOrderTable extends Migration
         Schema::create('order', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            
+
             $table->integer('user_id')->unsigned();
             $table->integer('product_id')->unsigned();
 
@@ -24,6 +24,7 @@ class CreateOrderTable extends Migration
             $table->foreign('product_id')->references('id')->on('product');
 
             $table->integer('days')->unsigned();
+            
             
             $table->timestamps();
         });
