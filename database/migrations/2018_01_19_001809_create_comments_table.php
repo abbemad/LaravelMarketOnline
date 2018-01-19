@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->longText('description')->nullable();
-            $table->string('stock');
-            $table->decimal('price', 10, 4);
-            $table->integer('amount', 100);
-
+            $table->longText('body');
+            $table->string('url', 255)->nullable();
             $table->integer('user_id')->unsigned();
+            $table->integer('commentable_id')->unsigned();
+            $table->string('commentable_type');
+
             $table->foreign('user_id')->references('id')->on('users');
-            
+           
+
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ class CreateProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('comments');
     }
 }
