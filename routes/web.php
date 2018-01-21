@@ -66,6 +66,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/tasks/task/{id}','TasksController@show');
 
     Route::get('/products','ProductController@index');
+    Route::get('/products/create','ProductController@create');
     Route::get('/products/product/{id}','ProductController@index');
     
+    Route::post('/products/save','ProductController@store');
 });

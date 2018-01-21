@@ -6,7 +6,7 @@ use App\Product;
 use DB;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -40,6 +40,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        return view('products.create');
     }
 
     /**
@@ -48,9 +49,19 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
+        $data = [   'name'=>$request->name,
+                    'description'=>$request->description,
+                    'stock'=>$request->stock,
+                    'price'=>$request->price,
+                    'amount'=>$request->amount,
+                    'user_id' => auth()->user()->id];
+
+        DB::table('product')->insert($data);
+        return back();
     }
 
     /**
