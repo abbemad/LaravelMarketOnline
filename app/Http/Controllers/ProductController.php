@@ -84,6 +84,8 @@ class ProductController extends AdminController
     public function edit(Product $product)
     {
         //
+        $products = DB::table('product')->where('id',$product)->first();
+        return view('products.edit');
     }
 
     /**
@@ -95,7 +97,16 @@ class ProductController extends AdminController
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //        
+        $data = [   'name'=>$request->name,
+                    'description'=>$request->description,
+                    'stock'=>$request->stock,
+                    'price'=>$request->price,
+                    'amount'=>$request->amount,
+                    'user_id' => auth()->user()->id];
+
+        DB::table('product')->where('id',$request->id)->update($data);
+        return redirect('admin/products/show');
     }
 
     /**

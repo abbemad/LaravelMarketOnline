@@ -34,7 +34,8 @@
                     <td> {{ $product->price }} </td>
                     <td> {{ $product->amount }} </td>
                     <td> {{ $product->user_id }} </td>
-  
+
+                    <td><a href="{{ URL::to('/admin/products/edit',$product->id) }}">Edit user</a> </td>
                 </tr>
                 @endforeach
         </tbody>    
