@@ -13,7 +13,12 @@
     <form action="{{ URL::to('/admin/products/update')}}" method="POST">
         {{ csrf_field() }}
         <table>
-
+            <tr>
+                <td>ID</td>
+                <td>
+                    <input type="hidden" name="id" value="{{  $product->id  }}">
+                </td>
+            </tr>
             <tr>
                 <td>Name</td>
                 <td>
