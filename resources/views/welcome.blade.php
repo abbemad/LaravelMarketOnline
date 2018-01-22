@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url ('/shop') }}">Shop</a>
+                    <a href="{{ url ('/order') }}">Shop</a>
                     <a href="{{ url ('/about') }}">About</a>
                     <a href="{{ url ('/contact') }}">Contact</a>
                     

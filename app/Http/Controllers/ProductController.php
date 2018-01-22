@@ -54,6 +54,7 @@ class ProductController extends AdminController
 
     }
 
+    
     public function edit(Request $request, $id)
     {
         //

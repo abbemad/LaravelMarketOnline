@@ -11,7 +11,7 @@
                 
                     About 
                     What countries are we currently shipping to? Press the button
-                    <a href="{{ URL::to('country/1') }}">Shipping to</a>
+                    <a href="{{ URL::to('country/') }}">Shipping to</a>
                     
                 </div>
             </div>

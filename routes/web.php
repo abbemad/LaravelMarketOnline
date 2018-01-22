@@ -12,39 +12,36 @@
 */
 Route::view('/', 'welcome')->name('home');
 
-Route::view('/shop', 'shop')->name('shop');
+Route::view('/order', 'shop')->name('shop');
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
+
+
 
 Route::get('/country/{id}',function($id){
     $countries = App\Country::all();
     return view('/country',compact('countries'));
 });
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
+Route::get('/home','HomeController@index')->name('home');
+
+Route::get('/order','ShopController@index');
+Route::get('/order/create/{id}','ShopController@create');
+Route::get('/order/edit/{id}',['as'=>'edit/order','uses'=>'ShopController@edit']);
+Route::get('/order/delete/{id}','ShopController@destroy');
+Route::get('/order/delete/{id}', 'ShopController@destroy');
+Route::post('/order/update','ShopController@update');
+Route::post('/order/save','ShopController@store');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
     //prefix with group function, with this you can remove all the /admin from the the following routes
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    
-    // TO DO
-
-    // Everything from the UserController should be in the Auth\AdminController
-    // Below here also  + change the Routes to UserController
-
-    // Need to make new routes for next step in project for the Basket for the users 
-    // Make/edit a new User controller 
-    // Add basket in User controller + Routes
-
+ 
     Route::get('/users/list','UserController@index');
     Route::get('/users/insert','UserController@insert');
     Route::get('/users/delete','UserController@delete');
@@ -62,16 +59,14 @@ Route::prefix('admin')->group(function(){
     Route::get('/users/member/insert','MemberController@insert');
     Route::post('/users/member/save','MemberController@save');
 
-    Route::get('/tasks','TasksController@index');
-    Route::get('/tasks/task/{id}','TasksController@show');
-
     Route::get('/products','ProductController@index');
     Route::get('/products/create','ProductController@create');
     Route::get('/products/edit/{id}',['as'=>'edit/products','uses'=>'ProductController@edit']);
-    
     Route::get('/products/delete','ProductController@destroy');
     Route::get('/products/delete/{id}', 'ProductController@destroy');
-
     Route::post('/products/update','ProductController@update');
     Route::post('/products/save','ProductController@store');
+
+    Route::get('/tasks','TasksController@index');
+    Route::get('/tasks/task/{id}','TasksController@show');
 });
