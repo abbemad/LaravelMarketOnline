@@ -69,5 +69,9 @@ Route::prefix('admin')->group(function(){
     Route::get('/products/create','ProductController@create');
     Route::get('/products/edit/{id}',['as'=>'edit/products','uses'=>'ProductController@edit']);
     
+    Route::get('/products/delete','ProductController@destroy');
+    Route::get('/products/delete/{id}', 'ProductController@destroy');
+
+    Route::post('/products/update','ProductController@update');
     Route::post('/products/save','ProductController@store');
 });

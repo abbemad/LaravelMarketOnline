@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User list</title>
+    <title>Edit product</title>
 </head>
 <body>
-    <h1>Edit user</h1>
+    <h1>Edit product</h1>
     <hr>
     <form action="{{ URL::to('/admin/products/update')}}" method="POST">
         {{ csrf_field() }}
@@ -38,7 +38,7 @@
             <tr>
                 <td>Price</td>
                 <td>
-                    <input type="number" name="price" value="{{  $product->price  }}">
+                    <input type="number" step="any" name="price" value="{{  $product->price  }}">
                 </td>
             </tr>
 

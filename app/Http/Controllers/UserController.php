@@ -38,7 +38,7 @@ class UserController extends AdminController
         return back();
     }
 
-    public function edit($id){
+    public function edit(Request $request, $id){
         $users = DB::table('users')->where('id',$id)->first();
         return view('users.edit',compact('members', 'users'))->with('id',$id);
     }

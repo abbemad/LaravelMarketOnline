@@ -36,6 +36,7 @@
                     <td> {{ $product->user_id }} </td>
 
                     <td><a href="{{ URL::to('/admin/products/edit',$product->id) }}">Edit user</a> </td>
+                    <td><a href="{{ URL::to('/admin/products/delete',$product->id) }}" onclick="return confirm('Are you sure you want to delete : {{$product->name}} ')"> Delete product</a> </td>
                 </tr>
                 @endforeach
         </tbody>    

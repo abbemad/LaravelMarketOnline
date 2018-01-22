@@ -73,6 +73,7 @@ class ProductController extends AdminController
     public function show(Product $product)
     {
         //
+
     }
 
     /**
@@ -81,11 +82,15 @@ class ProductController extends AdminController
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Request $request, $id)
     {
         //
-        $products = DB::table('product')->where('id',$product)->first();
-        return view('products.edit');
+        $product = DB::table('product')->where('id',$id)->first();
+        return view('products.edit',compact('product'))->with('id',$id);
+
+            // $products = DB::table('product')->where('id',$id)->first();
+            // return view('products.edit')->with('id',$id);
+        
     }
 
     /**
@@ -95,7 +100,7 @@ class ProductController extends AdminController
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request)
     {
         //        
         $data = [   'name'=>$request->name,
@@ -106,7 +111,7 @@ class ProductController extends AdminController
                     'user_id' => auth()->user()->id];
 
         DB::table('product')->where('id',$request->id)->update($data);
-        return redirect('admin/products/show');
+        return redirect('admin/products');
     }
 
     /**
@@ -115,8 +120,9 @@ class ProductController extends AdminController
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
-        //
+        DB::table('product')->where('id',$request->id)->delete();
+        return redirect('admin/products');
     }
 }
